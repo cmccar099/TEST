@@ -23,16 +23,10 @@ jobs:
           pip install schemachange
 
       - name: Run schemachange
-        run: |
-          schemachange -f scripts/ \
-            -a "SUNLIFE-US" \
-            -u "charlie.mccarthy@sunlife.com" \
-            -r "USER_SNO_MI_DEV" \
-            -w "XS_SYS_INGEST" \
-            -d "SUN360_SOURCE_DEV" \
-            -s "PUBLIC" \
-            -p DF72tiOrt87]wty2
+        run: | 
+          schemachange deploy -f scripts/ --connections-file-path connections.toml
         env:
-          SNOWFLAKE_ACCOUNT: "SUNLIFE-US"
-          SNOWFLAKE_USER: "charlie.mccarthy@sunlife.com"
-          SNOWFLAKE_PASSWORD: DF72tiOrt87]wty2
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+
