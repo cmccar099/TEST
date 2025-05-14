@@ -22,9 +22,22 @@ jobs:
         run: |
           pip install schemachange
 
+      - name: Generate connections.toml from template
+        run: |
+          envsubst < connections.template.toml > connections.toml
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+
+      - name: Secure permissions on connections.toml
+        run: |
+          chmod 600 connections.toml
+
       - name: Run schemachange
-        run: | 
+        run: |
           schemachange deploy -f scripts --connections-file-path connections.toml
+
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
