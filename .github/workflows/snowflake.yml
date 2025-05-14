@@ -30,8 +30,8 @@ jobs:
             -r "USER_SNO_MI_DEV" \
             -w "XS_SYS_INGES"T \
             -d "SUN360_SOURCE_DEV" \
-            -s PUBLIC \
-            -p ${{ secrets.SNOWFLAKE_PASSWORD }}
+            -s "PUBLIC" \
+            -p "DF72tiOrt87]wty2"
         env:
           SNOWFLAKE_ACCOUNT: "SUNLIFE-US"
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
