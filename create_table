@@ -10,4 +10,3 @@ changes:
         EMAIL STRING,
         CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
-

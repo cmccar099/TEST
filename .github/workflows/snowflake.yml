@@ -27,10 +27,10 @@ jobs:
           schemachange -f scripts/ \
             -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
             -u ${{ secrets.SNOWFLAKE_USER }} \
-            -r SYSADMIN \
-            -w MY_WH \
-            -d DEPLOY_DB \
-            -s DEPLOY_SCHEMA \
+            -r USER_SNO_MI_DEV \
+            -w XS_SYS_INGEST \
+            -d SUN360_SOURCE_DEV \
+            -s PUBLIC \
             -p ${{ secrets.SNOWFLAKE_PASSWORD }}
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
