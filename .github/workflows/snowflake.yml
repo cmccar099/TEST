@@ -24,7 +24,7 @@ jobs:
 
       - name: Run schemachange
         run: | 
-          schemachange deploy -f scripts/001 --connections-file-path connections.toml
+          schemachange deploy -f scripts --connections-file-path connections.toml
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
