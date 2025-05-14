@@ -28,7 +28,7 @@ jobs:
             -a "SUNLIFE-US" \
             -u "charlie.mccarthy@sunlife.com" \
             -r "USER_SNO_MI_DEV" \
-            -w "XS_SYS_INGES"T \
+            -w "XS_SYS_INGEST" \
             -d "SUN360_SOURCE_DEV" \
             -s "PUBLIC" \
             -p DF72tiOrt87]wty2
