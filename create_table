@@ -1,0 +1,1 @@
+CREATE OR REPLACE TABLE SUN123 (order_id int);
