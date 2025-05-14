@@ -1,33 +1,38 @@
 name: Deploy to Snowflake
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 jobs:
-deploy:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout repo
-uses: actions/checkout@v3
+  deploy:
+    runs-on: ubuntu-latest
 
-- name: Set up Python
-uses: actions/setup-python@v4
-with:
-python-version: '3.10'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-- name: Install dependencies
-run: |
-pip install schemachange
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-- name: Run schemachange
-run: |
-schemachange -f scripts/ \
--a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
--u ${{ secrets.SNOWFLAKE_USER }} \
--r SYSADMIN \
--w MY_WH \
--d DEPLOY_DB \
--s DEPLOY_SCHEMA \
--p ${{ secrets.SNOWFLAKE_PASSWORD }}
+      - name: Install dependencies
+        run: |
+          pip install schemachange
+
+      - name: Run schemachange
+        run: |
+          schemachange -f scripts/ \
+            -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
+            -u ${{ secrets.SNOWFLAKE_USER }} \
+            -r SYSADMIN \
+            -w MY_WH \
+            -d DEPLOY_DB \
+            -s DEPLOY_SCHEMA \
+            -p ${{ secrets.SNOWFLAKE_PASSWORD }}
+        env:
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
