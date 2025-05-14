@@ -1,0 +1,7 @@
+account = "${SNOWFLAKE_ACCOUNT}"
+user = "${SNOWFLAKE_USER}"
+password = "${SNOWFLAKE_PASSWORD}"
+role = "USER_SNO_MI_DEV"
+warehouse = "XS_SYS_INGEST"
+database = "SUN360_SOURCE_DEV"
+schema = "PUBLIC"
