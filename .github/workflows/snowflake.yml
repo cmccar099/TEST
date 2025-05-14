@@ -25,11 +25,11 @@ jobs:
       - name: Run schemachange
         run: |
           schemachange -f scripts/ \
-            -a ${{ secrets.SNOWFLAKE_ACCOUNT }} \
-            -u ${{ secrets.SNOWFLAKE_USER }} \
-            -r USER_SNO_MI_DEV \
-            -w XS_SYS_INGEST \
-            -d SUN360_SOURCE_DEV \
+            -a "SUNLIFE-US" \
+            -u "charlie.mccarthy@sunlife.com" \
+            -r "USER_SNO_MI_DEV" \
+            -w "XS_SYS_INGES"T \
+            -d "SUN360_SOURCE_DEV" \
             -s PUBLIC \
             -p ${{ secrets.SNOWFLAKE_PASSWORD }}
         env:
