@@ -31,8 +31,8 @@ jobs:
             -w "XS_SYS_INGES"T \
             -d "SUN360_SOURCE_DEV" \
             -s "PUBLIC" \
-            -p "DF72tiOrt87]wty2"
+            -p DF72tiOrt87]wty2
         env:
           SNOWFLAKE_ACCOUNT: "SUNLIFE-US"
           SNOWFLAKE_USER: "charlie.mccarthy@sunlife.com"
-          SNOWFLAKE_PASSWORD: "DF72tiOrt87]wty2"
+          SNOWFLAKE_PASSWORD: DF72tiOrt87]wty2
